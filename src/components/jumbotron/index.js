@@ -1,7 +1,8 @@
 import React from "react";
 import {
-    Inner, 
-    Container, 
+    Inner,
+    Item,
+    Container,
     Pane,
     Title,
     Subtitle,
@@ -9,7 +10,11 @@ import {
 } from './styles/jumbotron';
 
 const Jumbotron = ({ children, direction = 'row', ...restProps }) => {
-    return (<Inner direction={direction}>{children}</Inner>)
+    return (
+        <Item {...restProps}>
+            <Inner direction={direction}>{children}</Inner>
+        </Item>
+    )
 }
 
 Jumbotron.Container = function JumbotronContainer({ children, ...restProps }) {
@@ -29,7 +34,7 @@ Jumbotron.Subtitle = function JumbotronSubtitle({ children, ...restProps }) {
 };
 
 Jumbotron.Image = function JumbotronImage({ ...restProps }) {
-    return <Image {...restProps}/>;
+    return <Image {...restProps} />;
 };
 
 export default Jumbotron
